@@ -1,0 +1,36 @@
+Incomplete. Work in Progress
+
+Description
+===========
+Solvers that can use thealternate chemistry models
+
+Original Authors
+===============
+Bernhard Gschaider (bgschaid@ice-sf.at)
+Markus Rehm (markus.rehm@iec.tu-freiberg.de)
+
+Current Maintainers
+==================
+Bernhard Gschaider (bgschaid@ice-sf.at)
+Markus Rehm (markus.rehm@iec.tu-freiberg.de)
+
+Documentation
+=============
+See: http://openfoamwiki.net/index.php/Contrib_alternateReactinFoam
+
+Required OpenFOAM-Version (Known to work with)
+==============================================
+1.5
+
+Prerequisites
+=============
+Required:
+ - alternateChemistryModels from the libraries-directory
+Optional (if you want to use cantera):
+ - canteraThermosChemistry from the libraries-directory
+
+Directory Contents
+==================
+Steady    : the steady solver and tutorial examples
+Transient : the transient solver and examples
+Utilities : utilities for postprocessing (calculation of the reraction rates)
