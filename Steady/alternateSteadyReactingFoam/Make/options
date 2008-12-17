@@ -1,0 +1,21 @@
+EXE_INC = \
+    -I$(LIB_SRC)/finiteVolume/cfdTools \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/turbulenceModels/RAS \
+    -I$(LIB_SRC)/thermophysicalModels/specie/lnInclude \
+    -I$(LIB_SRC)/thermophysicalModels/combustion/lnInclude \
+    -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude \
+    -I$(LIB_SRC)/thermophysicalModels/chemistryModel/lnInclude \
+    -I$(LIB_SRC)/ODE/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/Libraries/alternateChemistryModels/lnInclude \
+
+EXE_LIBS = \
+    -lcompressibleRASModels \
+    -lcombustionThermophysicalModels \
+    -lfiniteVolume \
+    -lspecie \
+    -lbasicThermophysicalModels \
+    -lchemistryModel \
+    -lODE \
+    -L$(FOAM_USER_LIBBIN) \
+    -lalternateChemistryModels 

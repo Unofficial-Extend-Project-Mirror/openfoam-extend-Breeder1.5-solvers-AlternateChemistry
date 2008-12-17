@@ -1,0 +1,69 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.2-devel                             |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+// Field Dictionary
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "/Werner/bgschaid/bgschaid-foamStuff/Solver/Spray";
+    case            "dualInjector2D";
+    instance        "0";
+    local           "";
+
+    class           volTensorField;
+    object          R;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform (0 0 0 0 0 0 0 0 0);
+
+boundaryField
+{
+    wand            
+    {
+        type            zeroGradient;
+    }
+
+    inject2         
+    {
+        type            fixedValue;
+        value           uniform (0 0 0 0 0 0 0 0 0);
+    }
+
+    inject1         
+    {
+        type            fixedValue;
+        value           uniform (0 0 0 0 0 0 0 0 0);
+    }
+
+    outlet          
+    {
+        type            zeroGradient;
+    }
+
+    inlet           
+    {
+        type            fixedValue;
+        value           uniform (0 0 0 0 0 0 0 0 0);
+    }
+
+    frontAndBackPlanes 
+    {
+        type            empty;
+    }
+}
+
+
+// ************************************************************************* //

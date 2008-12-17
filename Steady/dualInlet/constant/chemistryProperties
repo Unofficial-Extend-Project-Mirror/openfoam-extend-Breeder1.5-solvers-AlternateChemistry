@@ -1,0 +1,60 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.0                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile {
+version             1.0;
+format              ascii;
+root                "";
+case                "example";
+local               "constant";
+class               dictionary;
+form                dictionary;
+object              chemistryProperties;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+chemistry               on;
+
+chemistryEngine canteraLocalTimeChemistryModel;
+// chemistryEngine canteraChemistryModel;
+// chemistryEngine chemistryModelProxy;
+
+// chemistrySolver EulerImplicit;
+chemistrySolver CVODE;
+
+initialChemicalTimeStep     1.0e-8;
+
+EulerImplicitCoeffs
+{
+    cTauChem        5.0e-2;
+    equilibriumRateLimiter      on;
+}
+
+turbulentReaction true;
+Cmix CMix [0 0 0 0 0 0 0] 1.;
+
+steadyChemistryDeltaT 1e-1;
+
+CVODECoeffs
+{
+  RTOL 1e-11;
+  ATOL 1e-12;
+  USEJAC 0;
+}
+
+recalcMax 5;
+YOvershootThreshold 1.001;
+kappaScaleThres 0.1;
+minAbsDeltaY 1e-3;
+absDeltaYThres 0.1;
+relDeltaYThres 0.5;
+relDeltaYCalcThres 0.5;
+kappaScaleDelta 0.25;
+
+// ************************************************************************* //

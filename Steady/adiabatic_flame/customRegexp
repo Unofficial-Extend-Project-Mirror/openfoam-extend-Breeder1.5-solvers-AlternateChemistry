@@ -1,0 +1,5 @@
+{ "expr":"Range of T \[ (%f%) , (%f%) \]","name":"Temperatur Range","titles":["min","max"]}
+{ "expr":"Range of CH4 \[ (%f%) , (%f%) \]","name":"CH4 Range","titles":["min","max"]}
+{ "expr":"Range of O2 \[ (%f%) , (%f%) \]","name":"O2 Range","titles":["min","max"]}
+{ "expr":"Range of rho \[ (%f%) , (%f%) \]","name":"Density Range","titles":["min","max"]}
+{ "expr":"Characteristic time of chemistry: (%f%)","name":"Chemistry Time","logscale":True}

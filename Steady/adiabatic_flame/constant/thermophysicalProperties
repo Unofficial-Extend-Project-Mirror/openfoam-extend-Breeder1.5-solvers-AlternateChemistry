@@ -1,0 +1,54 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.2-devel                             |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+// FoamX Case Dictionary.
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "/Werner/bgschaid/bgschaid-foamStuff/Solver/Spray";
+    case            "dualInjector2D";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          thermophysicalProperties;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+thermoType      hMixtureThermo<canteraMixture>;
+// thermoType      hMixtureThermo<reactingMixture>;
+
+// chemistryReader foamChemistryReader;
+chemistryReader chemkinReader;
+
+foamChemistryThermoFile "$FOAM_CASE/constant/gasThermo";
+foamChemistryFile       "$FOAM_CASE/constant/gasReactions";
+
+// CHEMKINFile "$FOAM_CASE/constant/gri30.inp";
+CHEMKINFile "$FOAM_CASE/constant/grimech30_113_willy.inp";
+CHEMKINThermoFile   "$FOAM_CASE/constant/therm_markus.dat";
+
+inertSpecie N2;
+
+cantera {
+	gasFile "$FOAM_CASE/constant/gri30.cti";
+	gasId gri30_mix;
+}
+
+liquidComponents (H2O);
+solidFuelComponents (COAL);
+
+H2O H2O defaultCoeffs;
+
+COAL Cs defaultCoeffs;
+
+// ************************************************************************* //
