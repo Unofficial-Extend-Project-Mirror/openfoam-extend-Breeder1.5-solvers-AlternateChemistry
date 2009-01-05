@@ -62,6 +62,7 @@ kappaScaleThres 0.1;
 minAbsDeltaY 1e-3;
 absDeltaYThres 0.1;
 relDeltaYThres 0.5;
+relDeltaYCalcThres 0.5;
 kappaScaleDelta 0.25;
 
 // ************************************************************************* //

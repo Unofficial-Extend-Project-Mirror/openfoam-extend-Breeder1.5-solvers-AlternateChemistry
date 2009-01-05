@@ -37,6 +37,7 @@ inertSpecie N2;
 cantera {
 	gasFile "$FOAM_CASE/constant/mix.cti";
 	gasId mix;
+	standinThermoFile "$FOAM_CASE/constant/gasThermo";
 }
 
 liquidComponents (H2O);
