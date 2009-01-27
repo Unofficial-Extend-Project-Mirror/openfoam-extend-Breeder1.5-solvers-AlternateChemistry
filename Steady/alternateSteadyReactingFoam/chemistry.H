@@ -16,12 +16,11 @@
         volScalarField tk =
                 Cmix*sqrt(turbulence->muEff()/rho/turbulence->epsilon());
         volScalarField tc = chemistry().tc();
-	Info << "ChemicalTimeScale tc in [ " << min(tc).value() << " ; " << max(tc).value() << "] s" << endl;
+	volScalarField tf = chemistry().tf();	
+	
         // Chalmers PaSR model
-        kappa = (runTime.deltaT() + tc)/(runTime.deltaT() + tc + tk);
-
-// 	kappa = (tc)/(tc + tk);
-
+        //kappa = (runTime.deltaT() + tc)/(runTime.deltaT() + tc + tk);
+	kappa = (tf + tc)/(tf + tc + tk);
     }
     else
     {
