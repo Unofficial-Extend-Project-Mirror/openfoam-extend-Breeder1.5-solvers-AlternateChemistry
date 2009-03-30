@@ -51,6 +51,7 @@ int main(int argc, char *argv[])
 #   include "addRegionOption.H"
 
     argList::validOptions.insert("steady","");
+    argList::validOptions.insert("writeTc","");
 
 #   include "setRootCase.H"
 
@@ -68,6 +69,7 @@ int main(int argc, char *argv[])
 #   include "readChemistryProperties.H"
 
     bool steady=args.options().found("steady");
+    bool writeTc=args.options().found("writeTc");
 
 #   include "createFields.H"
 
@@ -91,6 +93,14 @@ int main(int argc, char *argv[])
             RR[i].write();
         }
         RRsum.write();
+
+        if(writeTc) {
+            Info << "Writing tc" << endl;
+            
+            volScalarField tc(chemistry().tc());
+
+            tc.write();
+        }
 
         Info << endl;
     }
