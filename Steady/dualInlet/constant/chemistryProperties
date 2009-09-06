@@ -21,9 +21,12 @@ object              chemistryProperties;
 
 chemistry               on;
 
-chemistryEngine canteraLocalTimeChemistryModel;
-// chemistryEngine canteraChemistryModel;
-// chemistryEngine chemistryModelProxy;
+//Choose the chemistry library:
+
+// chemistryEngine canteraChemistryModel; //Cantera library using fixed chem. time scale.
+chemistryEngine canteraLocalTimeChemistryModel; //Cantera library using local chem. time scale.
+// chemistryEngine chemistryModelProxy; //OpenFoam library.
+// chemistryEngine localTimeChemistryModelProxy; //OpenFoam library using local chem. time scale.
 
 turbulentReaction true;
 Cmix CMix [0 0 0 0 0 0 0] 1.;
