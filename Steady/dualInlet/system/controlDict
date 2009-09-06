@@ -36,7 +36,7 @@ deltaT          1;
 
 writeControl    timeStep;
 
-writeInterval   50;
+writeInterval   100;
 
 purgeWrite      0;
 
@@ -55,10 +55,8 @@ graphFormat     raw;
 runTimeModifiable yes;
 
 libs ( 
-	"libOpenFOAM.so" 
-	"libcompressibleFluxBCs.so" 
+	"libOpenFOAM.so"
 	"libcanteraThermosChemistry.so"
-        "libCVODEchemistrySolver.so"
       );
 
 

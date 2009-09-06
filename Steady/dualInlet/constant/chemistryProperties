@@ -25,36 +25,37 @@ chemistryEngine canteraLocalTimeChemistryModel;
 // chemistryEngine canteraChemistryModel;
 // chemistryEngine chemistryModelProxy;
 
-// chemistrySolver EulerImplicit;
-chemistrySolver CVODE;
-
-initialChemicalTimeStep     1.0e-8;
-
-EulerImplicitCoeffs
-{
-    cTauChem        5.0e-2;
-    equilibriumRateLimiter      on;
-}
-
 turbulentReaction true;
 Cmix CMix [0 0 0 0 0 0 0] 1.;
 
-steadyChemistryDeltaT 1e-1;
+steadyChemistryDeltaT 1e-1; //maximum chemical time scale
 
-CVODECoeffs
-{
-  RTOL 1e-11;
-  ATOL 1e-12;
-  USEJAC 0;
-}
+// ************************************************************************* //
+//options for chemistryRateLimit in Steady solver
+//YEqn stabilisation parameters - to prevent steep changes in Y and T if one of the
+//checks finds a problem (positive result of the check) kappa is reduced.
 
+// 5 - number of performed stabilisation loops
 recalcMax 5;
+
+// 1.001  - maximum YTotal=sum(Yi) allowed (see 1st check)
 YOvershootThreshold 1.001;
-kappaScaleThres 0.1;
+
+// 1e-3 - if deltaY is smaller than this the 2nd check is not performed
 minAbsDeltaY 1e-3;
+
+// 0.1 - if the absolute change of Y is larger than this the 2nd check turns positive
 absDeltaYThres 0.1;
-relDeltaYThres 0.5;
-relDeltaYCalcThres 0.5;
+
+// 0.5 - if the relative change of Y is larger than this the 2nd check turns positive
+relDeltaYThres 1e1;
+
+// 1e-6 - a threshold needed for the calculation of relDeltaY like in case Yold=0
+//relDeltaY = absDeltaY/max(relDeltaYCalcThres,Yold);
+//first it was set to SMALL but this resulted in huge relDeltaY!
+relDeltaYCalcThres 1e-6;
+
+// 0.25 - kappa is scaled by that value if 1st or 2nd check is positive
 kappaScaleDelta 0.25;
 
 // ************************************************************************* //
