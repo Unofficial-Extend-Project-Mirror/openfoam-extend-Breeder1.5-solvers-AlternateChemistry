@@ -21,8 +21,10 @@ object              chemistryProperties;
 
 chemistry               on;
 
-chemistryEngine canteraChemistryModel;
-// chemistryEngine chemistryModelProxy;
+//Choose the chemistry model
+chemistryEngine canteraChemistryModel; // use Cantera chemistry
+// chemistryEngine chemistryModelProxy; // use OpenFOAM chemistry
+
 
 chemistrySolver EulerImplicit;
 
