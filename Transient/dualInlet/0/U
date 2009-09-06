@@ -35,15 +35,13 @@ boundaryField
     }
     inject2
     {
-        type totalMassFlow;
-        totalMassFlowPerSecond 0.1;
-        value           uniform (0 0 0);
+	type            fixedValue;
+        value           uniform (0 -1 0);
     }
     inject1
     {
-        type totalMassFlow;
-        totalMassFlowPerSecond 0.1;
-        value           uniform (0 0 0);
+	type            fixedValue;
+        value           uniform (0 1 0);
     }
     outlet
     {
@@ -51,9 +49,8 @@ boundaryField
     }
     inlet
     {
-        type totalMassFlow;
-        totalMassFlowPerSecond 0.01;
-        value           uniform (0 0 0);
+        type            fixedValue;
+        value           uniform (1 0 0);
     }
     frontAndBackPlanes
     {
