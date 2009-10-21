@@ -58,10 +58,9 @@ libs (
 	"libOpenFOAM.so" 
 	"libcompressibleFluxBCs.so" 
 	"libcanteraThermosChemistry.so"
-        "libCVODEchemistrySolver.so"
       );
 
-functions
+/*functions
   (
      totals
     {
@@ -82,6 +81,6 @@ functions
 
       outputInterval 1;
     }
-  );
+  );*/
 
 // ************************************************************************* //

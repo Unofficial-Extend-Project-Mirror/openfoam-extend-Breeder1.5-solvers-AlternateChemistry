@@ -23,10 +23,10 @@ chemistry               on;
 
 chemistryEngine canteraLocalTimeChemistryModel;
 // chemistryEngine canteraChemistryModel;
+// chemistryEngine localTimeChemistryModelProxy;
 // chemistryEngine chemistryModelProxy;
 
-// chemistrySolver EulerImplicit;
-chemistrySolver CVODE;
+chemistrySolver EulerImplicit;
 
 initialChemicalTimeStep     1.0e-8;
 
@@ -40,21 +40,6 @@ turbulentReaction true;
 Cmix CMix [0 0 0 0 0 0 0] 1.;
 
 steadyChemistryDeltaT 1e-1;
-
-CVODECoeffs
-{
-  RTOL 1e-11;
-  ATOL 1e-12;
-  USEJAC 0;
-}
-
-fixedTemperatur (
-	{
-		position (0.01 0.005 0);
-//		temperature 1700; geht im "1D"-Fall
-		temperature 2200;
-	}
-);
 
 recalcMax 5;
 YOvershootThreshold 1.001;

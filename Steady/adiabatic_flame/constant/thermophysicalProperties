@@ -27,15 +27,14 @@ FoamFile
 thermoType      hMixtureThermo<canteraMixture>;
 // thermoType      hMixtureThermo<reactingMixture>;
 
-// chemistryReader foamChemistryReader;
-chemistryReader chemkinReader;
+chemistryReader foamChemistryReader;
+// chemistryReader chemkinReader;
 
 foamChemistryThermoFile "$FOAM_CASE/constant/gasThermo";
 foamChemistryFile       "$FOAM_CASE/constant/gasReactions";
 
 // CHEMKINFile "$FOAM_CASE/constant/gri30.inp";
-CHEMKINFile "$FOAM_CASE/constant/grimech30_113_willy.inp";
-CHEMKINThermoFile   "$FOAM_CASE/constant/therm_markus.dat";
+// CHEMKINThermoFile   "$FOAM_CASE/constant/...";
 
 inertSpecie N2;
 
@@ -44,12 +43,5 @@ cantera {
 	gasId gri30_mix;
 	standinThermoFile $foamChemistryThermoFile;
 }
-
-liquidComponents (H2O);
-solidFuelComponents (COAL);
-
-H2O H2O defaultCoeffs;
-
-COAL Cs defaultCoeffs;
 
 // ************************************************************************* //
