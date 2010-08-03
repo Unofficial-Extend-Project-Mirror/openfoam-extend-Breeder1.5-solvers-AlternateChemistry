@@ -114,7 +114,7 @@ tmp<fv::convectionScheme<scalar> > mvConvection
                         recalculate = true;
                         cnt++;
 
-                        Pout << "diffY zu groß!  = absDeltaY="<< absDeltaY 
+                        Pout << "diffY to big!  = absDeltaY="<< absDeltaY 
                             << " relDeltaY="<< relDeltaY <<" for cell " 
                             << celli << ". Setting kappa from " << kappa[celli] 
                             << " to " << kappa[celli]*kappaScaleDelta << " count = "
